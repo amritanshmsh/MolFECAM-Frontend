@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+
+# Build output
+.next/
+out/
+
+# Production
+build/
+.cache/
+dist/
+
+# VS Code settings
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS-specific files
+.DS_Store
+
+# Optional
+coverage/
+.idea/# Dependencies
+node_modules/
+
+# Build output
+.next/
+out/
+
+# Production
+build/
+.cache/
+dist/
+
+# VS Code settings
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS-specific files
+.DS_Store
+
+# Optional
+coverage/
+.idea/
