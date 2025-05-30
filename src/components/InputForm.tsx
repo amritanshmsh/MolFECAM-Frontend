@@ -15,13 +15,16 @@ export default function InputForm({ setResult }: InputFormProps) {
     e.preventDefault()
     setLoading(true)
     try {
-      const res = await fetch('/api/predict', {
+      const res = await fetch('http://localhost:8000/predict', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ smiles }),
+        body: JSON.stringify({ smiles: [smiles] }),
       })
+      if (!res.ok) {
+        throw new Error('Network response was not ok')
+      }
       const data = await res.json()
-      setResult(data)
+      setResult(data.results)
     } catch (err) {
       console.error('Prediction error:', err)
     } finally {
@@ -36,7 +39,7 @@ export default function InputForm({ setResult }: InputFormProps) {
         value={smiles}
         onChange={(e) => setSmiles(e.target.value)}
         placeholder="Enter SMILES string"
-        className="w-full px-4 py-2 border rounded shadow-sm"
+        className="w-full text-black px-4 py-2 border rounded shadow-sm"
         required
       />
       <button
