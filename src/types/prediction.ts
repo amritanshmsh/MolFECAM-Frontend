@@ -1,7 +1,4 @@
-interface PredictionResult {
-  property: string;
-  value: string;
-  confidence: number;
-}
+
+type PredictionResult = Record<string, string | number | boolean>
 
 export type { PredictionResult }

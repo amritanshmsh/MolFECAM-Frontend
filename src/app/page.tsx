@@ -4,6 +4,7 @@ import { useState } from 'react'
 import InputForm from '@/components/InputForm'
 import PredictionCard from '@/components/PredictionCard'
 import { PredictionResult } from '@/types/prediction'
+import ForgettingMetrics from '@/components/ForgettingMetrics'
 
 export default function Home() {
   const [result, setResult] = useState<PredictionResult[] | null>(null)
@@ -18,6 +19,7 @@ export default function Home() {
           Enter a SMILES string to predict molecular properties like toxicity, sweetness, and more.
         </p>
         <InputForm setResult={setResult} />
+        <ForgettingMetrics />
         {result && result.map((item, index) => (
           <PredictionCard key={index} result={item} />
         ))}

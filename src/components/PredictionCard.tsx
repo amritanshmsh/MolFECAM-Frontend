@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { PredictionResult } from '@/types/prediction'
 
@@ -7,10 +8,16 @@ interface PredictionCardProps {
 
 const PredictionCard: React.FC<PredictionCardProps> = ({ result }) => {
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 border border-gray-200">
-      <h3 className="text-lg font-semibold text-gray-800">{result.property}</h3>
-      <p className="text-2xl font-bold text-blue-600 mt-2">{result.value}</p>
-      <p className="text-sm text-gray-500 mt-1">Confidence: {result.confidence}</p>
+    <div className="mt-4 p-4 bg-white shadow rounded text-left">
+      {Object.entries(result).map(([key, val]) => (
+        <div
+          key={key}
+          className="flex justify-between py-1 border-b last:border-0"
+        >
+          <span className="font-medium text-gray-800">{key}:</span>
+          <span className="text-gray-600">{String(val)}</span>
+        </div>
+      ))}
     </div>
   )
 }
